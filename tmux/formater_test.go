@@ -327,6 +327,8 @@ func TestTruncate(t *testing.T) {
 	}
 }
 
+// TODO Add TestOrigin 
+
 func TestFormat(t *testing.T) {
 	tests := []struct {
 		name    string

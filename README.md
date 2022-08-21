@@ -216,6 +216,8 @@ This is the list of additional configuration `options`:
 | :--------------- | :--------------------------------------------------------- | :----------------- |
 | `branch_max_len` | Maximum displayed length for local and remote branch names | `0` (no limit)     |
 | `branch_trim`    | Trim left or right end of the branch (`right` or `left`)   | `right` (trailing) |
+| `remote_name`    | Name of the remote which will be replaced with `remote_symbol` | `origin` |
+| `remote_symbol`  | A string to replace the `remote_name` in the `remote-branch` | `origin` (no change) |
 
 
 ## Troubleshooting

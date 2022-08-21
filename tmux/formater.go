@@ -79,6 +79,8 @@ func (d *direction) UnmarshalYAML(value *yaml.Node) error {
 type options struct {
 	BranchMaxLen int       `yaml:"branch_max_len"`
 	BranchTrim   direction `yaml:"branch_trim"`
+	RemoteName   string    `yaml:"remote_name"`
+	RemoteSymbol string    `yaml:"remote_symbol"`
 }
 
 // DefaultCfg is the default tmux configuration.
@@ -112,6 +114,8 @@ var DefaultCfg = Config{
 	Options: options{
 		BranchMaxLen: 0,
 		BranchTrim:   dirRight,
+		RemoteName:   "origin",
+		RemoteSymbol: "",  // TODO: replace this default with "origin"
 	},
 }
 
@@ -229,7 +233,8 @@ func (f *Formater) remoteBranch() {
 
 	f.clear()
 
-	branch := truncate(f.st.RemoteBranch, f.Options.BranchMaxLen, f.Options.BranchTrim)
+	branch := strings.Replace(f.st.RemoteBranch,f.Options.RemoteName,f.Options.RemoteSymbol,1)
+	branch = truncate(branch, f.Options.BranchMaxLen, f.Options.BranchTrim)
 	fmt.Fprintf(&f.b, "%s%s", f.Styles.Remote, branch)
 }
 

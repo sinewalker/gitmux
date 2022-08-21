@@ -48,7 +48,7 @@ go install github.com/arl/gitmux@latest
 If your `tmux` version supports `pane_current_path` (tmux v2.1+),
 just add this line to your `.tmux.conf`:
 
-    set -g status-right '#(gitmux "#{pane_current_path}")'
+    tmux set -g status-right '#(gitmux "#{pane_current_path}")'
 
 If your `tmux` doesn't support `pane_current_path` then you can use 
 a [bash-specific solution](https://github.com/arl/gitmux/issues/19#issuecomment-594735939)
